@@ -1,0 +1,782 @@
+{
+  "stats": {
+    "suites": 10,
+    "tests": 22,
+    "passes": 1,
+    "pending": 0,
+    "failures": 21,
+    "start": "2023-11-01T18:00:03.575Z",
+    "end": "2023-11-01T18:00:46.009Z",
+    "duration": 42434,
+    "testsRegistered": 22,
+    "passPercent": 4.545454545454546,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "ed363268-d7e7-4de5-970b-302d5068b5fb",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "15e183d4-5365-4964-b732-cb5949533d79",
+          "title": "Cloud functions template test. Shows how to run functions against emulators",
+          "fullFile": "/home/runner/work/abonement/abonement/functions/src/functions/cloudFunctionTemplate.test.ts",
+          "file": "/src/functions/cloudFunctionTemplate.test.ts",
+          "beforeHooks": [
+            {
+              "title": "\"before all\" hook in \"Cloud functions template test. Shows how to run functions against emulators\"",
+              "fullTitle": "Cloud functions template test. Shows how to run functions against emulators \"before all\" hook in \"Cloud functions template test. Shows how to run functions against emulators\"",
+              "timedOut": false,
+              "duration": 164,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const serviceAccountKeyFileName = './src/abonement-58b38-firebase-credentials.json';\nconst projectSettings = {\n    projectId: 'abonement-58b38',\n};\ncloudFunctionText(projectSettings, serviceAccountKeyFileName);\nadmin.firestore().settings({\n    host: 'localhost:8080',\n    ssl: false,\n    keyFilename: serviceAccountKeyFileName,\n});",
+              "err": {},
+              "uuid": "a8f6a3a5-6352-4440-8449-8a8ba6799870",
+              "parentUUID": "15e183d4-5365-4964-b732-cb5949533d79",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should pass using database and the emulators",
+              "fullTitle": "Cloud functions template test. Shows how to run functions against emulators should pass using database and the emulators",
+              "timedOut": true,
+              "duration": 2214,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const testValue = { value: 'original' };\nawait collectionService_1.db.collection('example').doc('test-doc').set(testValue);\nconst snap = await collectionService_1.db.collection('example').doc('test-doc').get();\nconst data = snap.data();\nassert.deepEqual(data, testValue);",
+              "err": {
+                "message": "Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves. (/home/runner/work/abonement/abonement/functions/src/functions/cloudFunctionTemplate.test.ts)",
+                "estack": "Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves. (/home/runner/work/abonement/abonement/functions/src/functions/cloudFunctionTemplate.test.ts)\n    at listOnTimeout (node:internal/timers:559:17)\n    at processTimers (node:internal/timers:502:7)",
+                "diff": null
+              },
+              "uuid": "a7a22bb6-869e-4fae-ad67-ab91d89729a8",
+              "parentUUID": "15e183d4-5365-4964-b732-cb5949533d79",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "creates a lesson and then finalizes it",
+              "fullTitle": "Cloud functions template test. Shows how to run functions against emulators creates a lesson and then finalizes it",
+              "timedOut": true,
+              "duration": 2001,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "await collectionService_1.db.collection('test_lessons').doc(exports.testLesson.id).set(exports.testLesson);\nassert.throws(async () => await fetch.default('http://127.0.0.1:5001/abonement-58b38/us-central1/finalizeLesson', {\n    method: 'POST',\n    headers: {\n        'Content-Type': 'text/plain',\n    },\n    body: exports.testLesson.id,\n}), Error);\nconst snap = await collectionService_1.db.collection('test_lessons').doc(exports.testLesson.id).get();\nconst data = snap.data();\nassert.deepEqual(data.status, domain_1.LessonStatus.done);",
+              "err": {
+                "message": "Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves. (/home/runner/work/abonement/abonement/functions/src/functions/cloudFunctionTemplate.test.ts)",
+                "estack": "Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves. (/home/runner/work/abonement/abonement/functions/src/functions/cloudFunctionTemplate.test.ts)\n    at listOnTimeout (node:internal/timers:559:17)\n    at processTimers (node:internal/timers:502:7)",
+                "diff": null
+              },
+              "uuid": "8beca7dd-a00c-4109-8ccf-9814fd49ba58",
+              "parentUUID": "15e183d4-5365-4964-b732-cb5949533d79",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "runs a cloud scheduled function",
+              "fullTitle": "Cloud functions template test. Shows how to run functions against emulators runs a cloud scheduled function",
+              "timedOut": true,
+              "duration": 2004,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const comingSoonLesson = Object.assign(Object.assign({}, exports.testLesson), { id: 'new-test-lisson-id', status: domain_1.LessonStatus.commingSoon });\nlessonScheduler_1.backendCollectionsCurrent.lessons.doc(exports.testLesson.id).set(comingSoonLesson);\nawait (0, lessonScheduler_1.lessonStartsUpdaterFunction)({\n    eventId: 'test-event-id',\n    timestamp: Date.now().toString(),\n    params: {},\n    eventType: 'test-event-type',\n    resource: {\n        service: 'test-service',\n        name: 'test-name',\n    },\n});\nconst snap = await lessonScheduler_1.backendCollectionsCurrent.lessons.doc(exports.testLesson.id).get();\nconst data = snap.data();\nassert.deepEqual(data.status, domain_1.LessonStatus.finished);",
+              "err": {
+                "message": "Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves. (/home/runner/work/abonement/abonement/functions/src/functions/cloudFunctionTemplate.test.ts)",
+                "estack": "Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves. (/home/runner/work/abonement/abonement/functions/src/functions/cloudFunctionTemplate.test.ts)\n    at listOnTimeout (node:internal/timers:559:17)\n    at processTimers (node:internal/timers:502:7)",
+                "diff": null
+              },
+              "uuid": "78a354b9-e601-4e37-9815-7e2e6400e147",
+              "parentUUID": "15e183d4-5365-4964-b732-cb5949533d79",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "a7a22bb6-869e-4fae-ad67-ab91d89729a8",
+            "8beca7dd-a00c-4109-8ccf-9814fd49ba58",
+            "78a354b9-e601-4e37-9815-7e2e6400e147"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 6219,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "88684017-cc36-486b-b771-f7392eac4a44",
+          "title": "lesson finalization tests",
+          "fullFile": "/home/runner/work/abonement/abonement/functions/src/functions/lessonFinalization.test.ts",
+          "file": "/src/functions/lessonFinalization.test.ts",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "1. Can finalize lesson from finished status to done status with date cheking",
+              "fullTitle": "lesson finalization tests 1. Can finalize lesson from finished status to done status with date cheking",
+              "timedOut": true,
+              "duration": 2002,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const finishedTestLesson = Object.assign(Object.assign({}, cloudFunctionTemplate_test_1.testLesson), { id: 'finished-test-lisson-id', status: domain_1.LessonStatus.finished, date: cloudFunctionTemplate_test_1.mochDate2023_7_14_15_30_0 });\nawait collectionService_1.db.collection('test_lessons').doc(finishedTestLesson.id).set(finishedTestLesson);\nawait fetch.default('http://127.0.0.1:5001/abonement-58b38/us-central1/finalizeLesson', {\n    method: 'POST',\n    headers: {\n        'Content-Type': 'text/plain',\n    },\n    body: finishedTestLesson.id,\n});\nconst snap = await collectionService_1.db.collection('test_lessons').doc(finishedTestLesson.id).get();\nconst data = snap.data();\nassert.deepEqual(data.status, domain_1.LessonStatus.done);",
+              "err": {
+                "message": "Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves. (/home/runner/work/abonement/abonement/functions/src/functions/lessonFinalization.test.ts)",
+                "estack": "Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves. (/home/runner/work/abonement/abonement/functions/src/functions/lessonFinalization.test.ts)\n    at listOnTimeout (node:internal/timers:559:17)\n    at processTimers (node:internal/timers:502:7)",
+                "diff": null
+              },
+              "uuid": "a0ace155-df13-48af-bbef-c2eaaf6a3701",
+              "parentUUID": "88684017-cc36-486b-b771-f7392eac4a44",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "2. Attempt to finalize lesson with date later then now will fail with error",
+              "fullTitle": "lesson finalization tests 2. Attempt to finalize lesson with date later then now will fail with error",
+              "timedOut": true,
+              "duration": 2000,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const dateInFuture = new Date();\ndateInFuture.setFullYear(dateInFuture.getFullYear() + 1);\nconst testLessonFromFuture = Object.assign(Object.assign({}, cloudFunctionTemplate_test_1.testLesson), { id: 'future-test-lisson-id', status: domain_1.LessonStatus.finished, date: dateInFuture });\nawait collectionService_1.db.collection('test_lessons').doc(testLessonFromFuture.id).set(testLessonFromFuture);\nassert.throws(async () => {\n    await fetch.default('http://127.0.0.1:5001/abonement-58b38/us-central1/finalizeLesson', {\n        method: 'POST',\n        headers: {\n            'Content-Type': 'text/plain',\n        },\n        body: testLessonFromFuture.id,\n    });\n}, Error);\nconst snap = await collectionService_1.db.collection('test_lessons').doc(testLessonFromFuture.id).get();\nconst data = snap.data();\nassert.deepEqual(data.status, domain_1.LessonStatus.finished);",
+              "err": {
+                "message": "Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves. (/home/runner/work/abonement/abonement/functions/src/functions/lessonFinalization.test.ts)",
+                "estack": "Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves. (/home/runner/work/abonement/abonement/functions/src/functions/lessonFinalization.test.ts)\n    at listOnTimeout (node:internal/timers:559:17)\n    at processTimers (node:internal/timers:502:7)",
+                "diff": null
+              },
+              "uuid": "9e51bd43-2409-470f-80e3-2e339ad0d41f",
+              "parentUUID": "88684017-cc36-486b-b771-f7392eac4a44",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "3. Attempt to finalize lesson from other statuses then finished will fail with error",
+              "fullTitle": "lesson finalization tests 3. Attempt to finalize lesson from other statuses then finished will fail with error",
+              "timedOut": true,
+              "duration": 2002,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const scheduledTestLesson = Object.assign(Object.assign({}, cloudFunctionTemplate_test_1.testLesson), { id: 'scheduled-test-lisson-id', status: domain_1.LessonStatus.scheduled, date: cloudFunctionTemplate_test_1.mochDate2023_7_14_15_30_0 });\nawait collectionService_1.db.collection('test_lessons').doc(scheduledTestLesson.id).set(scheduledTestLesson);\nassert.throws(async () => {\n    await fetch.default('http://127.0.0.1:5001/abonement-58b38/us-central1/finalizeLesson', {\n        method: 'POST',\n        headers: {\n            'Content-Type': 'text/plain',\n        },\n        body: scheduledTestLesson.id,\n    });\n}, Error);\nconst snap = await collectionService_1.db.collection('test_lessons').doc(scheduledTestLesson.id).get();\nconst data = snap.data();\nassert.deepEqual(data.status, domain_1.LessonStatus.scheduled);",
+              "err": {
+                "message": "Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves. (/home/runner/work/abonement/abonement/functions/src/functions/lessonFinalization.test.ts)",
+                "estack": "Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves. (/home/runner/work/abonement/abonement/functions/src/functions/lessonFinalization.test.ts)\n    at listOnTimeout (node:internal/timers:559:17)\n    at processTimers (node:internal/timers:502:7)",
+                "diff": null
+              },
+              "uuid": "86e62979-3ff7-4117-a887-788b89c3901a",
+              "parentUUID": "88684017-cc36-486b-b771-f7392eac4a44",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "4. Accepted user abonements will be consumed after lesson finalization",
+              "fullTitle": "lesson finalization tests 4. Accepted user abonements will be consumed after lesson finalization",
+              "timedOut": true,
+              "duration": 2001,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const testLessonWithAccepted = Object.assign(Object.assign({}, cloudFunctionTemplate_test_1.testLesson), { id: 'test-lisson-with-accepted-id', status: domain_1.LessonStatus.finished, date: cloudFunctionTemplate_test_1.mochDate2023_7_14_15_30_0, accepted: [\n        'test-user1-id',\n        'test-user2-id',\n    ], declained: [\n        'test-user3-id',\n    ] });\nawait collectionService_1.db.collection('test_lessons').doc(testLessonWithAccepted.id).set(testLessonWithAccepted);\nconst testUser1LimitLessons = await chekAbonementLimitFunction('test-user1-id');\nconst testUser2LimitLessons = await chekAbonementLimitFunction('test-user2-id');\nconst testUser3LimitLessons = await chekAbonementLimitFunction('test-user3-id');\nassert.throws(async () => {\n    await fetch.default('http://127.0.0.1:5001/abonement-58b38/us-central1/finalizeLesson', {\n        method: 'POST',\n        headers: {\n            'Content-Type': 'text/plain',\n        },\n        body: testLessonWithAccepted.id,\n    });\n}, Error);\nconst checkTestUser1LimitLessons = await chekAbonementLimitFunction('test-user1-id');\nconst checkTestUser2LimitLessons = await chekAbonementLimitFunction('test-user2-id');\nconst checkTestUser3LimitLessons = await chekAbonementLimitFunction('test-user3-id');\nassert.equal(testUser1LimitLessons, checkTestUser1LimitLessons - 1);\nassert.equal(testUser2LimitLessons, checkTestUser2LimitLessons - 1);\nassert.equal(testUser3LimitLessons, checkTestUser3LimitLessons);",
+              "err": {
+                "message": "Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves. (/home/runner/work/abonement/abonement/functions/src/functions/lessonFinalization.test.ts)",
+                "estack": "Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves. (/home/runner/work/abonement/abonement/functions/src/functions/lessonFinalization.test.ts)\n    at listOnTimeout (node:internal/timers:559:17)\n    at processTimers (node:internal/timers:502:7)",
+                "diff": null
+              },
+              "uuid": "e7c2189b-eb9e-4d8f-8ba4-4626e524904e",
+              "parentUUID": "88684017-cc36-486b-b771-f7392eac4a44",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "5. When lesson is finalezed, teacher and students will get notification",
+              "fullTitle": "lesson finalization tests 5. When lesson is finalezed, teacher and students will get notification",
+              "timedOut": true,
+              "duration": 2002,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const testLessonWithAcceptedAndTeacher = Object.assign(Object.assign({}, cloudFunctionTemplate_test_1.testLesson), { id: 'test-lisson-with-accepted&teacher-id', status: domain_1.LessonStatus.finished, date: cloudFunctionTemplate_test_1.mochDate2023_7_14_15_30_0, teacherId: 'test-teacher-id', accepted: [\n        'test-user1-id',\n        'test-user2-id',\n    ], declained: [\n        'test-user3-id',\n    ] });\nawait collectionService_1.db.collection('test_lessons').doc(testLessonWithAcceptedAndTeacher.id).set(testLessonWithAcceptedAndTeacher);\nconst testUser1Notification = await checkSendedNotifications('test-user1-id');\nconst testUser2Notification = await checkSendedNotifications('test-user2-id');\nconst testUser3Notification = await checkSendedNotifications('test-user3-id');\nconst testTeacherNotification = await checkSendedNotifications('test-teacher-id');\nassert.throws(async () => {\n    await fetch.default('http://127.0.0.1:5001/abonement-58b38/us-central1/finalizeLesson', {\n        method: 'POST',\n        headers: {\n            'Content-Type': 'text/plain',\n        },\n        body: testLessonWithAcceptedAndTeacher.id,\n    });\n}, Error);\nconst checkTestUser1Notification = await checkSendedNotifications('test-user1-id');\nconst checkTestUser2Notification = await checkSendedNotifications('test-user2-id');\nconst checkTestUser3Notification = await checkSendedNotifications('test-user3-id');\nconst checkTestTeacherNotification = await checkSendedNotifications('test-teacher-id');\nassert.equal(testUser1Notification, checkTestUser1Notification + 1);\nassert.equal(testUser2Notification, checkTestUser2Notification + 1);\nassert.equal(testUser3Notification, checkTestUser3Notification);\nassert.equal(testTeacherNotification, checkTestTeacherNotification + 1);",
+              "err": {
+                "message": "Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves. (/home/runner/work/abonement/abonement/functions/src/functions/lessonFinalization.test.ts)",
+                "estack": "Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves. (/home/runner/work/abonement/abonement/functions/src/functions/lessonFinalization.test.ts)\n    at listOnTimeout (node:internal/timers:559:17)\n    at processTimers (node:internal/timers:502:7)",
+                "diff": null
+              },
+              "uuid": "5f89b720-318f-4599-bcb4-2544d31bae67",
+              "parentUUID": "88684017-cc36-486b-b771-f7392eac4a44",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "a0ace155-df13-48af-bbef-c2eaaf6a3701",
+            "9e51bd43-2409-470f-80e3-2e339ad0d41f",
+            "86e62979-3ff7-4117-a887-788b89c3901a",
+            "e7c2189b-eb9e-4d8f-8ba4-4626e524904e",
+            "5f89b720-318f-4599-bcb4-2544d31bae67"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 10007,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "9436e5a6-2bd9-4a2c-843b-c7d0ee4e765d",
+          "title": " cancel Lesson Function tests",
+          "fullFile": "/home/runner/work/abonement/abonement/functions/src/functions/lessonFinalization.test.ts",
+          "file": "/src/functions/lessonFinalization.test.ts",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "1. Can cancel lesson from scheduled and coming soon status to canceled status",
+              "fullTitle": " cancel Lesson Function tests 1. Can cancel lesson from scheduled and coming soon status to canceled status",
+              "timedOut": true,
+              "duration": 2000,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const scheduledTestLesson = Object.assign(Object.assign({}, cloudFunctionTemplate_test_1.testLesson), { id: 'scheduled-test-lisson-id', status: domain_1.LessonStatus.scheduled, date: cloudFunctionTemplate_test_1.mochDate2023_7_14_15_30_0 });\nconst commingSoonTestLesson = Object.assign(Object.assign({}, cloudFunctionTemplate_test_1.testLesson), { id: 'coming-soon-test-lisson-id', status: domain_1.LessonStatus.commingSoon, date: cloudFunctionTemplate_test_1.mochDate2023_7_14_15_30_0 });\nawait collectionService_1.db.collection('test_lessons').doc(scheduledTestLesson.id).set(scheduledTestLesson);\nawait collectionService_1.db.collection('test_lessons').doc(commingSoonTestLesson.id).set(commingSoonTestLesson);\nassert.throws(async () => {\n    await fetch.default('http://127.0.0.1:5001/abonement-58b38/us-central1/cancelLesson', {\n        method: 'POST',\n        headers: {\n            'Content-Type': 'text/plain',\n        },\n        body: scheduledTestLesson.id,\n    });\n}, Error);\nassert.throws(async () => {\n    await fetch.default('http://127.0.0.1:5001/abonement-58b38/us-central1/cancelLesson', {\n        method: 'POST',\n        headers: {\n            'Content-Type': 'text/plain',\n        },\n        body: commingSoonTestLesson.id,\n    });\n}, Error);\nconst snap = await collectionService_1.db.collection('test_lessons').doc(scheduledTestLesson.id).get();\nconst scheduledTestLessonData = snap.data();\nassert.deepEqual(scheduledTestLessonData.status, domain_1.LessonStatus.canceled);\nconst snap2 = await collectionService_1.db.collection('test_lessons').doc(commingSoonTestLesson.id).get();\nconst commingSoonTestLessonData = snap2.data();\nassert.deepEqual(commingSoonTestLessonData.status, domain_1.LessonStatus.canceled);",
+              "err": {
+                "message": "Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves. (/home/runner/work/abonement/abonement/functions/src/functions/lessonFinalization.test.ts)",
+                "estack": "Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves. (/home/runner/work/abonement/abonement/functions/src/functions/lessonFinalization.test.ts)\n    at listOnTimeout (node:internal/timers:559:17)\n    at processTimers (node:internal/timers:502:7)",
+                "diff": null
+              },
+              "uuid": "878d5f06-1354-4399-b5d8-288e8fc9e38c",
+              "parentUUID": "9436e5a6-2bd9-4a2c-843b-c7d0ee4e765d",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "2. You can not finalize canceled lesson ",
+              "fullTitle": " cancel Lesson Function tests 2. You can not finalize canceled lesson ",
+              "timedOut": true,
+              "duration": 2000,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const canceledTestLesson = Object.assign(Object.assign({}, cloudFunctionTemplate_test_1.testLesson), { id: 'canceled-test-lisson-id', status: domain_1.LessonStatus.canceled, date: cloudFunctionTemplate_test_1.mochDate2023_7_14_15_30_0 });\nawait collectionService_1.db.collection('test_lessons').doc(canceledTestLesson.id).set(canceledTestLesson);\nassert.throws(async () => {\n    await fetch.default('http://127.0.0.1:5001/abonement-58b38/us-central1/finalizeLesson', {\n        method: 'POST',\n        headers: {\n            'Content-Type': 'text/plain',\n        },\n        body: canceledTestLesson.id,\n    });\n}, Error);\nconst snap = await collectionService_1.db.collection('test_lessons').doc(canceledTestLesson.id).get();\nconst data = snap.data();\nassert.deepEqual(data.status, domain_1.LessonStatus.canceled);",
+              "err": {
+                "message": "Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves. (/home/runner/work/abonement/abonement/functions/src/functions/lessonFinalization.test.ts)",
+                "estack": "Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves. (/home/runner/work/abonement/abonement/functions/src/functions/lessonFinalization.test.ts)\n    at listOnTimeout (node:internal/timers:559:17)\n    at processTimers (node:internal/timers:502:7)",
+                "diff": null
+              },
+              "uuid": "63540cff-fc1e-432d-b1c2-4bf9868f1c67",
+              "parentUUID": "9436e5a6-2bd9-4a2c-843b-c7d0ee4e765d",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "3. Both accepted and declained users abonements will not be consumed after lesson cancelation",
+              "fullTitle": " cancel Lesson Function tests 3. Both accepted and declained users abonements will not be consumed after lesson cancelation",
+              "timedOut": true,
+              "duration": 2000,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const testLessonWithAccepted = Object.assign(Object.assign({}, cloudFunctionTemplate_test_1.testLesson), { id: 'test-lisson-with-accepted-id', status: domain_1.LessonStatus.scheduled, date: cloudFunctionTemplate_test_1.mochDate2023_7_14_15_30_0, accepted: [\n        'test-user1-id',\n        'test-user2-id',\n    ], declained: [\n        'test-user3-id',\n    ] });\nawait collectionService_1.db.collection('test_lessons').doc(testLessonWithAccepted.id).set(testLessonWithAccepted);\nconst testUser1LimitLessons = await chekAbonementLimitFunction('test-user1-id');\nconst testUser2LimitLessons = await chekAbonementLimitFunction('test-user2-id');\nconst testUser3LimitLessons = await chekAbonementLimitFunction('test-user3-id');\nassert.throws(async () => {\n    await fetch.default('http://127.0.0.1:5001/abonement-58b38/us-central1/cancelLesson', {\n        method: 'POST',\n        headers: {\n            'Content-Type': 'text/plain',\n        },\n        body: testLessonWithAccepted.id,\n    });\n}, Error);\nconst checkTestUser1LimitLessons = await chekAbonementLimitFunction('test-user1-id');\nconst checkTestUser2LimitLessons = await chekAbonementLimitFunction('test-user2-id');\nconst checkTestUser3LimitLessons = await chekAbonementLimitFunction('test-user3-id');\nassert.equal(testUser1LimitLessons, checkTestUser1LimitLessons);\nassert.equal(testUser2LimitLessons, checkTestUser2LimitLessons);\nassert.equal(testUser3LimitLessons, checkTestUser3LimitLessons);",
+              "err": {
+                "message": "Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves. (/home/runner/work/abonement/abonement/functions/src/functions/lessonFinalization.test.ts)",
+                "estack": "Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves. (/home/runner/work/abonement/abonement/functions/src/functions/lessonFinalization.test.ts)\n    at listOnTimeout (node:internal/timers:559:17)\n    at processTimers (node:internal/timers:502:7)",
+                "diff": null
+              },
+              "uuid": "e9475c39-ddcc-46f8-a52c-71a734d294c4",
+              "parentUUID": "9436e5a6-2bd9-4a2c-843b-c7d0ee4e765d",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "878d5f06-1354-4399-b5d8-288e8fc9e38c",
+            "63540cff-fc1e-432d-b1c2-4bf9868f1c67",
+            "e9475c39-ddcc-46f8-a52c-71a734d294c4"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 6000,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "4ffd983b-ed6b-47bc-a955-d752c336487a",
+          "title": "lesson Scheduler Function tests",
+          "fullFile": "/home/runner/work/abonement/abonement/functions/src/functions/lessonScheduler.test.ts",
+          "file": "/src/functions/lessonScheduler.test.ts",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "For every rule that require us to create a new lesson within lessonCreationTimeInterval the single entity of lesson is created ",
+              "fullTitle": "lesson Scheduler Function tests For every rule that require us to create a new lesson within lessonCreationTimeInterval the single entity of lesson is created ",
+              "timedOut": true,
+              "duration": 2006,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const scheduledTestRule1 = Object.assign(Object.assign({}, exports.testRule), { id: 'scheduledTestRule1Id', periodicity: {\n        periodicityType: domain_1.PeriodicityType.manualDate,\n        periodicityRule: [new Date(Date.now() + lessonScheduler_1.lessonCreationTimeInterval + 100)],\n    } });\nconst scheduledTestRule2 = Object.assign(Object.assign({}, exports.testRule), { id: 'scheduledTestRule2Id', periodicity: {\n        periodicityType: domain_1.PeriodicityType.manualDate,\n        periodicityRule: [new Date(Date.now() - (lessonScheduler_1.lessonCreationTimeInterval - 100))],\n    } });\nconst scheduledTestRule3 = Object.assign(Object.assign({}, exports.testRule), { id: 'scheduledTestRule3Id', periodicity: {\n        periodicityType: domain_1.PeriodicityType.manualDate,\n        periodicityRule: [new Date(Date.now())],\n    } });\nconst testRules = [\n    scheduledTestRule1,\n    scheduledTestRule2,\n    scheduledTestRule3,\n];\nawait Promise.all(testRules.map(async (rule) => {\n    await collectionService_1.db.collection('test_rules').doc(rule.id).set(rule);\n}));\nassert.throws(async () => {\n    await (0, lessonScheduler_1.lessonSchedulerFunction)({\n        eventId: 'test-event-id',\n        timestamp: Date.now().toString(),\n        params: {},\n        eventType: 'test-event-type',\n        resource: {\n            service: 'test-service',\n            name: 'test-name',\n        },\n    });\n}, Error);\nconst createdLessonQuery = collectionService_1.db.collection('test_lesson').orderBy('date', 'desc').limit(1);\nconst snap = await createdLessonQuery.get();\nconst data = snap.docs[0].data();\nassert.deepEqual(data.ruleId, scheduledTestRule3.id);",
+              "err": {
+                "message": "Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves. (/home/runner/work/abonement/abonement/functions/src/functions/lessonScheduler.test.ts)",
+                "estack": "Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves. (/home/runner/work/abonement/abonement/functions/src/functions/lessonScheduler.test.ts)\n    at listOnTimeout (node:internal/timers:559:17)\n    at processTimers (node:internal/timers:502:7)",
+                "diff": null
+              },
+              "uuid": "6a56311c-c537-436e-a9ed-d95ee78be5ff",
+              "parentUUID": "4ffd983b-ed6b-47bc-a955-d752c336487a",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "When the lesson is scheduled the teacher notifications appear",
+              "fullTitle": "lesson Scheduler Function tests When the lesson is scheduled the teacher notifications appear",
+              "timedOut": true,
+              "duration": 2001,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "await collectionService_1.db.collection('test_rules').doc(exports.testRule.id).set(exports.testRule);\nconst countNotification = await checkSendedNotifications('testTeacherId');\nassert.throws(async () => {\n    await (0, lessonScheduler_1.lessonSchedulerFunction)({\n        eventId: 'test-event-id',\n        timestamp: Date.now().toString(),\n        params: {},\n        eventType: 'test-event-type',\n        resource: {\n            service: 'test-service',\n            name: 'test-name',\n        },\n    });\n}, Error);\nconst newCountNotification = await checkSendedNotifications('testTeacherId');\nassert.deepEqual(newCountNotification, countNotification + 1);",
+              "err": {
+                "message": "Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves. (/home/runner/work/abonement/abonement/functions/src/functions/lessonScheduler.test.ts)",
+                "estack": "Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves. (/home/runner/work/abonement/abonement/functions/src/functions/lessonScheduler.test.ts)\n    at listOnTimeout (node:internal/timers:559:17)\n    at processTimers (node:internal/timers:502:7)",
+                "diff": null
+              },
+              "uuid": "a4c512e0-c4d7-44ec-bc9a-043329d4129d",
+              "parentUUID": "4ffd983b-ed6b-47bc-a955-d752c336487a",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "6a56311c-c537-436e-a9ed-d95ee78be5ff",
+            "a4c512e0-c4d7-44ec-bc9a-043329d4129d"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 4007,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "44472af4-04f0-4a3c-9dbc-def333929371",
+          "title": "lessonComingSoonUpdaterFunction tests",
+          "fullFile": "/home/runner/work/abonement/abonement/functions/src/functions/lessonScheduler.test.ts",
+          "file": "/src/functions/lessonScheduler.test.ts",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "For every lesson that is scheduled in less then lessonComingSoonTimeInterval the status changed to commingSoon",
+              "fullTitle": "lessonComingSoonUpdaterFunction tests For every lesson that is scheduled in less then lessonComingSoonTimeInterval the status changed to commingSoon",
+              "timedOut": true,
+              "duration": 2002,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const dateInlessonComingSoonTimeInterval = new Date(Date.now() - (lessonScheduler_1.lessonComingSoonTimeInterval - 100));\nconst dateOutlessonComingSoonTimeInterval = new Date(Date.now() - (lessonScheduler_1.lessonComingSoonTimeInterval + 100));\nconst scheduledLesson1 = Object.assign(Object.assign({}, cloudFunctionTemplate_test_1.testLesson), { id: 'test-lisson1-id', status: domain_1.LessonStatus.scheduled, date: dateInlessonComingSoonTimeInterval });\nconst scheduledLesson2 = Object.assign(Object.assign({}, cloudFunctionTemplate_test_1.testLesson), { id: 'test-lisson2-id', status: domain_1.LessonStatus.scheduled, date: dateOutlessonComingSoonTimeInterval });\nconst scheduledLesson3 = Object.assign(Object.assign({}, cloudFunctionTemplate_test_1.testLesson), { id: 'test-lisson3-id', status: domain_1.LessonStatus.canceled, date: dateInlessonComingSoonTimeInterval });\nconst doneLesson = Object.assign(Object.assign({}, cloudFunctionTemplate_test_1.testLesson), { id: 'test-lisson4-id', status: domain_1.LessonStatus.done, date: dateInlessonComingSoonTimeInterval });\nconst finishedLesson = Object.assign(Object.assign({}, cloudFunctionTemplate_test_1.testLesson), { id: 'test-lisson5-id', status: domain_1.LessonStatus.finished, date: dateInlessonComingSoonTimeInterval });\nconst inProcessLesson = Object.assign(Object.assign({}, cloudFunctionTemplate_test_1.testLesson), { id: 'test-lisson6-id', status: domain_1.LessonStatus.inProcess, date: dateInlessonComingSoonTimeInterval });\nconst testLessons = [\n    scheduledLesson1,\n    scheduledLesson2,\n    scheduledLesson3,\n    doneLesson,\n    finishedLesson,\n    inProcessLesson,\n];\nawait Promise.all(testLessons.map(async (lesson) => {\n    await collectionService_1.db.collection('test_lessons').doc(lesson.id).set(lesson);\n}));\nassert.throws(async () => {\n    await (0, lessonScheduler_1.lessonComingSoonUpdaterFunction)({\n        eventId: 'test-event-id',\n        timestamp: Date.now().toString(),\n        params: {},\n        eventType: 'test-event-type',\n        resource: {\n            service: 'test-service',\n            name: 'test-name',\n        },\n    });\n}, Error);\nconst snap = await collectionService_1.db.collection('test_lessons').get();\nconst data = snap.docs.map((doc) => doc.data());\nconst checkLesson = data.filter((lesson) => lesson.status === domain_1.LessonStatus.commingSoon);\nassert.deepEqual(checkLesson.length, 1);\nassert.equal(checkLesson[0].id, scheduledLesson1.id);",
+              "err": {
+                "message": "Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves. (/home/runner/work/abonement/abonement/functions/src/functions/lessonScheduler.test.ts)",
+                "estack": "Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves. (/home/runner/work/abonement/abonement/functions/src/functions/lessonScheduler.test.ts)\n    at listOnTimeout (node:internal/timers:559:17)\n    at processTimers (node:internal/timers:502:7)",
+                "diff": null
+              },
+              "uuid": "ba9e9c08-c36b-453f-893d-529497627dd5",
+              "parentUUID": "44472af4-04f0-4a3c-9dbc-def333929371",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "When the lesson is commingSoon the teacher and users notifications appear",
+              "fullTitle": "lessonComingSoonUpdaterFunction tests When the lesson is commingSoon the teacher and users notifications appear",
+              "timedOut": true,
+              "duration": 2003,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const testLessonWithTeacherId = Object.assign(Object.assign({}, cloudFunctionTemplate_test_1.testLesson), { id: 'test-lisson-with-teacher-id', status: domain_1.LessonStatus.scheduled, date: new Date(Date.now() - (lessonScheduler_1.lessonComingSoonTimeInterval - 100)), teacherId: 'test-teacher-id' });\nconst testUsers = [\n    {\n        id: 'test-user1-id',\n        name: 'test-user1-name',\n        avatar: '',\n    },\n    {\n        id: 'test-user2-id',\n        name: 'test-user2-name',\n        avatar: '',\n    },\n    {\n        id: 'test-user3-id',\n        name: 'test-user3-name',\n        avatar: '',\n    },\n];\nawait Promise.all(testUsers.map(async (user) => {\n    await collectionService_1.db.collection('test_users').doc(user.id).set(user);\n}));\nawait collectionService_1.db.collection('test_lessons').doc(testLessonWithTeacherId.id).set(testLessonWithTeacherId);\nconst testUser1Notification = await checkSendedNotifications('test-user1-id');\nconst testUser2Notification = await checkSendedNotifications('test-user2-id');\nconst testUser3Notification = await checkSendedNotifications('test-user3-id');\nconst testTeacherNotification = await checkSendedNotifications('test-teacher-id');\nassert.throws(async () => {\n    await (0, lessonScheduler_1.lessonComingSoonUpdaterFunction)({\n        eventId: 'test-event-id',\n        timestamp: Date.now().toString(),\n        params: {},\n        eventType: 'test-event-type',\n        resource: {\n            service: 'test-service',\n            name: 'test-name',\n        },\n    });\n}, Error);\nconst checkTestUser1Notification = await checkSendedNotifications('test-user1-id');\nconst checkTestUser2Notification = await checkSendedNotifications('test-user2-id');\nconst checkTestUser3Notification = await checkSendedNotifications('test-user3-id');\nconst checkTestTeacherNotification = await checkSendedNotifications('test-teacher-id');\nassert.equal(testUser1Notification, checkTestUser1Notification + 1);\nassert.equal(testUser2Notification, checkTestUser2Notification + 1);\nassert.equal(testUser3Notification, checkTestUser3Notification + 1);\nassert.equal(testTeacherNotification, checkTestTeacherNotification + 1);",
+              "err": {
+                "message": "Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves. (/home/runner/work/abonement/abonement/functions/src/functions/lessonScheduler.test.ts)",
+                "estack": "Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves. (/home/runner/work/abonement/abonement/functions/src/functions/lessonScheduler.test.ts)\n    at listOnTimeout (node:internal/timers:559:17)\n    at processTimers (node:internal/timers:502:7)",
+                "diff": null
+              },
+              "uuid": "543f65db-3c56-436c-8b99-43cea87f88d8",
+              "parentUUID": "44472af4-04f0-4a3c-9dbc-def333929371",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "ba9e9c08-c36b-453f-893d-529497627dd5",
+            "543f65db-3c56-436c-8b99-43cea87f88d8"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 4005,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "3e554dff-3311-47fa-a47f-d3d2c9918333",
+          "title": "lessonStartsUpdaterFunction tests",
+          "fullFile": "/home/runner/work/abonement/abonement/functions/src/functions/lessonScheduler.test.ts",
+          "file": "/src/functions/lessonScheduler.test.ts",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "For commingSoon lessons that has date less then now and not greater then date + duration the status changed to starts",
+              "fullTitle": "lessonStartsUpdaterFunction tests For commingSoon lessons that has date less then now and not greater then date + duration the status changed to starts",
+              "timedOut": true,
+              "duration": 2002,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const tooEarly = new Date(Date.now() - 100);\nconst startTime = new Date();\nconst tooLate = new Date(Date.now() + lessonScheduler_1.lessonComingSoonTimeInterval);\nconst commingSoonLesson1 = Object.assign(Object.assign({}, cloudFunctionTemplate_test_1.testLesson), { id: 'test-lisson1-id', status: domain_1.LessonStatus.commingSoon, date: startTime });\nconst commingSoonLesson2 = Object.assign(Object.assign({}, cloudFunctionTemplate_test_1.testLesson), { id: 'test-lisson2-id', status: domain_1.LessonStatus.commingSoon, date: tooEarly });\nconst commingSoonLesson3 = Object.assign(Object.assign({}, cloudFunctionTemplate_test_1.testLesson), { id: 'test-lisson3-id', status: domain_1.LessonStatus.commingSoon, date: tooLate });\nconst doneLesson = Object.assign(Object.assign({}, cloudFunctionTemplate_test_1.testLesson), { id: 'test-lisson4-id', status: domain_1.LessonStatus.done, date: startTime });\nconst finishedLesson = Object.assign(Object.assign({}, cloudFunctionTemplate_test_1.testLesson), { id: 'test-lisson5-id', status: domain_1.LessonStatus.finished, date: startTime });\nconst scheduledLesson = Object.assign(Object.assign({}, cloudFunctionTemplate_test_1.testLesson), { id: 'test-lisson6-id', status: domain_1.LessonStatus.scheduled, date: startTime });\nconst testLessons = [\n    commingSoonLesson1,\n    commingSoonLesson2,\n    commingSoonLesson3,\n    doneLesson,\n    finishedLesson,\n    scheduledLesson,\n];\nawait Promise.all(testLessons.map(async (lesson) => {\n    await collectionService_1.db.collection('test_lessons').doc(lesson.id).set(lesson);\n}));\nassert.throws(async () => {\n    await (0, lessonScheduler_1.lessonStartsUpdaterFunction)({\n        eventId: 'test-event-id',\n        timestamp: Date.now().toString(),\n        params: {},\n        eventType: 'test-event-type',\n        resource: {\n            service: 'test-service',\n            name: 'test-name',\n        },\n    });\n}, Error);\nconst snap = await collectionService_1.db.collection('test_lessons').get();\nconst data = snap.docs.map((doc) => doc.data());\nconst checkLesson = data.filter((lesson) => lesson.status === domain_1.LessonStatus.inProcess);\nassert.deepEqual(checkLesson.length, 1);\nassert.equal(checkLesson[0].id, commingSoonLesson1.id);",
+              "err": {
+                "message": "Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves. (/home/runner/work/abonement/abonement/functions/src/functions/lessonScheduler.test.ts)",
+                "estack": "Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves. (/home/runner/work/abonement/abonement/functions/src/functions/lessonScheduler.test.ts)\n    at listOnTimeout (node:internal/timers:559:17)\n    at processTimers (node:internal/timers:502:7)",
+                "diff": null
+              },
+              "uuid": "a9e28e16-719a-4430-8d1c-3809b26dbcfd",
+              "parentUUID": "3e554dff-3311-47fa-a47f-d3d2c9918333",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "a9e28e16-719a-4430-8d1c-3809b26dbcfd"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 2002,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "32a745b0-7a9a-482c-a3e6-43829a828df2",
+          "title": "lessonFinishedUpdaterFunction tests",
+          "fullFile": "/home/runner/work/abonement/abonement/functions/src/functions/lessonScheduler.test.ts",
+          "file": "/src/functions/lessonScheduler.test.ts",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "For started lessons that has date + duration less then now the status changed to finished",
+              "fullTitle": "lessonFinishedUpdaterFunction tests For started lessons that has date + duration less then now the status changed to finished",
+              "timedOut": true,
+              "duration": 2002,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const inProcessStartTime = new Date(Date.now() - (oneHourDuration - 100));\nconst finishedStartTime = new Date(Date.now() - (oneHourDuration + 100));\nconst commingSoonStartTime = new Date(Date.now() - (oneHourDuration * 2));\nconst inProcessLesson1 = Object.assign(Object.assign({}, cloudFunctionTemplate_test_1.testLesson), { id: 'test-lisson1-id', status: domain_1.LessonStatus.inProcess, durationMin: 60, date: finishedStartTime });\nconst inProcessLesson2 = Object.assign(Object.assign({}, cloudFunctionTemplate_test_1.testLesson), { id: 'test-lisson2-id', status: domain_1.LessonStatus.inProcess, date: inProcessStartTime });\nconst inProcessLesson3 = Object.assign(Object.assign({}, cloudFunctionTemplate_test_1.testLesson), { id: 'test-lisson3-id', status: domain_1.LessonStatus.inProcess, date: commingSoonStartTime });\nconst doneLesson = Object.assign(Object.assign({}, cloudFunctionTemplate_test_1.testLesson), { id: 'test-lisson4-id', status: domain_1.LessonStatus.done, date: finishedStartTime });\nconst commingSoonLesson = Object.assign(Object.assign({}, cloudFunctionTemplate_test_1.testLesson), { id: 'test-lisson5-id', status: domain_1.LessonStatus.commingSoon, date: finishedStartTime });\nconst scheduledLesson = Object.assign(Object.assign({}, cloudFunctionTemplate_test_1.testLesson), { id: 'test-lisson6-id', status: domain_1.LessonStatus.scheduled, date: finishedStartTime });\nconst testLessons = [\n    inProcessLesson1,\n    inProcessLesson2,\n    inProcessLesson3,\n    doneLesson,\n    commingSoonLesson,\n    scheduledLesson,\n];\nawait Promise.all(testLessons.map(async (lesson) => {\n    await collectionService_1.db.collection('test_lessons').doc(lesson.id).set(lesson);\n}));\nassert.throws(async () => {\n    await (0, lessonScheduler_1.lessonFinishedUpdaterFunction)({\n        eventId: 'test-event-id',\n        timestamp: Date.now().toString(),\n        params: {},\n        eventType: 'test-event-type',\n        resource: {\n            service: 'test-service',\n            name: 'test-name',\n        },\n    });\n}, Error);\nconst snap = await collectionService_1.db.collection('test_lessons').get();\nconst data = snap.docs.map((doc) => doc.data());\nconst checkLesson = data.filter((lesson) => lesson.status === domain_1.LessonStatus.finished);\nassert.deepEqual(checkLesson.length, 1);\nassert.equal(checkLesson[0].id, inProcessLesson1.id);",
+              "err": {
+                "message": "Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves. (/home/runner/work/abonement/abonement/functions/src/functions/lessonScheduler.test.ts)",
+                "estack": "Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves. (/home/runner/work/abonement/abonement/functions/src/functions/lessonScheduler.test.ts)\n    at listOnTimeout (node:internal/timers:559:17)\n    at processTimers (node:internal/timers:502:7)",
+                "diff": null
+              },
+              "uuid": "a9d7af03-75ea-467f-838c-010dfb615efd",
+              "parentUUID": "32a745b0-7a9a-482c-a3e6-43829a828df2",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "a9d7af03-75ea-467f-838c-010dfb615efd"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 2002,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "bcef8e85-c978-4a01-903e-a1ff5024b809",
+          "title": "lessonFinalizedUpdaterFunction tests",
+          "fullFile": "/home/runner/work/abonement/abonement/functions/src/functions/lessonScheduler.test.ts",
+          "file": "/src/functions/lessonScheduler.test.ts",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "For finished lessons that has date + duration + lessonFinalizedTimeInterval less then now the status changed to finalized",
+              "fullTitle": "lessonFinalizedUpdaterFunction tests For finished lessons that has date + duration + lessonFinalizedTimeInterval less then now the status changed to finalized",
+              "timedOut": true,
+              "duration": 2003,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const tooEarlyFiniz = new Date(Date.now() - (oneHourDuration + lessonScheduler_1.lessonFinalizedTimeInterval - 100));\nconst finalizedTime = new Date(Date.now() - (oneHourDuration + lessonScheduler_1.lessonFinalizedTimeInterval + 100));\nconst sheduledTime = new Date(Date.now() + (oneHourDuration * 2));\nconst finishedLesson1 = Object.assign(Object.assign({}, cloudFunctionTemplate_test_1.testLesson), { id: 'test-lisson1-id', status: domain_1.LessonStatus.finished, durationMin: 60, date: finalizedTime });\nconst finishedLesson2 = Object.assign(Object.assign({}, cloudFunctionTemplate_test_1.testLesson), { id: 'test-lisson2-id', status: domain_1.LessonStatus.finished, date: tooEarlyFiniz });\nconst finishedLesson3 = Object.assign(Object.assign({}, cloudFunctionTemplate_test_1.testLesson), { id: 'test-lisson3-id', status: domain_1.LessonStatus.finished, date: sheduledTime });\nconst inProcessLesson = Object.assign(Object.assign({}, cloudFunctionTemplate_test_1.testLesson), { id: 'test-lisson4-id', status: domain_1.LessonStatus.inProcess, date: finalizedTime });\nconst commingSoonLesson = Object.assign(Object.assign({}, cloudFunctionTemplate_test_1.testLesson), { id: 'test-lisson5-id', status: domain_1.LessonStatus.commingSoon, date: finalizedTime });\nconst scheduledLesson = Object.assign(Object.assign({}, cloudFunctionTemplate_test_1.testLesson), { id: 'test-lisson6-id', status: domain_1.LessonStatus.scheduled, date: finalizedTime });\nconst testLessons = [\n    finishedLesson1,\n    finishedLesson2,\n    finishedLesson3,\n    inProcessLesson,\n    commingSoonLesson,\n    scheduledLesson,\n];\nawait Promise.all(testLessons.map(async (lesson) => {\n    await collectionService_1.db.collection('test_lessons').doc(lesson.id).set(lesson);\n}));\nassert.throws(async () => {\n    await (0, lessonScheduler_1.lessonFinalizedUpdaterFunction)({\n        eventId: 'test-event-id',\n        timestamp: Date.now().toString(),\n        params: {},\n        eventType: 'test-event-type',\n        resource: {\n            service: 'test-service',\n            name: 'test-name',\n        },\n    });\n}, Error);\nconst snap = await collectionService_1.db.collection('test_lessons').get();\nconst data = snap.docs.map((doc) => doc.data());\nconst checkLesson = data.filter((lesson) => lesson.status === domain_1.LessonStatus.done);\nassert.deepEqual(checkLesson.length, 1);\nassert.equal(checkLesson[0].id, finishedLesson1.id);",
+              "err": {
+                "message": "Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves. (/home/runner/work/abonement/abonement/functions/src/functions/lessonScheduler.test.ts)",
+                "estack": "Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves. (/home/runner/work/abonement/abonement/functions/src/functions/lessonScheduler.test.ts)\n    at listOnTimeout (node:internal/timers:559:17)\n    at processTimers (node:internal/timers:502:7)",
+                "diff": null
+              },
+              "uuid": "c125202b-de3d-43a1-a5a5-9c7b3c54c614",
+              "parentUUID": "bcef8e85-c978-4a01-903e-a1ff5024b809",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "When the lesson is finalized the teacher and users notifications appear",
+              "fullTitle": "lessonFinalizedUpdaterFunction tests When the lesson is finalized the teacher and users notifications appear",
+              "timedOut": true,
+              "duration": 2002,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const testLessonWithTeacherId = Object.assign(Object.assign({}, cloudFunctionTemplate_test_1.testLesson), { id: 'test-lisson-with-teacher-id', status: domain_1.LessonStatus.finished, date: new Date(Date.now() - (oneHourDuration + lessonScheduler_1.lessonFinalizedTimeInterval + 100)), teacherId: 'test-teacher-id', accepted: [\n        'test-user1-id',\n        'test-user2-id',\n    ], declained: [\n        'test-user3-id'\n    ] });\nconst testUsers = [\n    {\n        id: 'test-user1-id',\n        name: 'test-user1-name',\n        avatar: '',\n    },\n    {\n        id: 'test-user2-id',\n        name: 'test-user2-name',\n        avatar: '',\n    },\n    {\n        id: 'test-user3-id',\n        name: 'test-user3-name',\n        avatar: '',\n    },\n];\nawait Promise.all(testUsers.map(async (user) => {\n    await collectionService_1.db.collection('test_users').doc(user.id).set(user);\n}));\nawait collectionService_1.db.collection('test_lessons').doc(testLessonWithTeacherId.id).set(testLessonWithTeacherId);\nconst testUser1Notification = await checkSendedNotifications('test-user1-id');\nconst testUser2Notification = await checkSendedNotifications('test-user2-id');\nconst testUser3Notification = await checkSendedNotifications('test-user3-id');\nconst testTeacherNotification = await checkSendedNotifications('test-teacher-id');\nassert.throws(async () => {\n    await (0, lessonScheduler_1.lessonFinalizedUpdaterFunction)({\n        eventId: 'test-event-id',\n        timestamp: Date.now().toString(),\n        params: {},\n        eventType: 'test-event-type',\n        resource: {\n            service: 'test-service',\n            name: 'test-name',\n        },\n    });\n}, Error);\nconst checkTestUser1Notification = await checkSendedNotifications('test-user1-id');\nconst checkTestUser2Notification = await checkSendedNotifications('test-user2-id');\nconst checkTestUser3Notification = await checkSendedNotifications('test-user3-id');\nconst checkTestTeacherNotification = await checkSendedNotifications('test-teacher-id');\nassert.equal(testUser1Notification, checkTestUser1Notification + 1);\nassert.equal(testUser2Notification, checkTestUser2Notification + 1);\nassert.equal(testUser3Notification, checkTestUser3Notification);\nassert.equal(testTeacherNotification, checkTestTeacherNotification + 1);",
+              "err": {
+                "message": "Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves. (/home/runner/work/abonement/abonement/functions/src/functions/lessonScheduler.test.ts)",
+                "estack": "Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves. (/home/runner/work/abonement/abonement/functions/src/functions/lessonScheduler.test.ts)\n    at listOnTimeout (node:internal/timers:559:17)\n    at processTimers (node:internal/timers:502:7)",
+                "diff": null
+              },
+              "uuid": "00922d43-6ab8-4580-ab29-bd3ce10c7088",
+              "parentUUID": "bcef8e85-c978-4a01-903e-a1ff5024b809",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "c125202b-de3d-43a1-a5a5-9c7b3c54c614",
+            "00922d43-6ab8-4580-ab29-bd3ce10c7088"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 4005,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "e86a75e8-2a8e-4ff7-9a43-dd777b76d775",
+          "title": "Rule change lesson updater tests",
+          "fullFile": "/home/runner/work/abonement/abonement/functions/src/functions/lessonScheduler.test.ts",
+          "file": "/src/functions/lessonScheduler.test.ts",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "If the rule is changed scheduled lessons are changed",
+              "fullTitle": "Rule change lesson updater tests If the rule is changed scheduled lessons are changed",
+              "timedOut": true,
+              "duration": 2001,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const lessonUpdaterTestRule = Object.assign(Object.assign({}, exports.testRule), { id: 'lessonUpdaterTestRuleId', periodicity: {\n        periodicityType: domain_1.PeriodicityType.manualDate,\n        periodicityRule: [cloudFunctionTemplate_test_1.mochDate2023_7_14_15_30_0],\n    } });\nawait collectionService_1.db.collection('test_rules').doc(lessonUpdaterTestRule.id).set(lessonUpdaterTestRule);\nconst scheduledLessonWithTrueRuleId = Object.assign(Object.assign({}, cloudFunctionTemplate_test_1.testLesson), { id: 'test-lisson1-id', status: domain_1.LessonStatus.scheduled, ruleId: 'lessonUpdaterTestRuleId' });\nconst scheduledLessonWithoutRuleId = Object.assign(Object.assign({}, cloudFunctionTemplate_test_1.testLesson), { id: 'test-lisson2-id', status: domain_1.LessonStatus.scheduled, ruleId: undefined });\nconst scheduledLessonWithFolseRuleId = Object.assign(Object.assign({}, cloudFunctionTemplate_test_1.testLesson), { id: 'test-lisson3-id', status: domain_1.LessonStatus.scheduled, ruleId: 'test-rule-id' });\nconst doneLesson = Object.assign(Object.assign({}, cloudFunctionTemplate_test_1.testLesson), { id: 'test-lisson4-id', status: domain_1.LessonStatus.done, ruleId: lessonUpdaterTestRule.id });\nconst finishedLesson = Object.assign(Object.assign({}, cloudFunctionTemplate_test_1.testLesson), { id: 'test-lisson5-id', status: domain_1.LessonStatus.finished, ruleId: lessonUpdaterTestRule.id });\nconst inProcessLesson = Object.assign(Object.assign({}, cloudFunctionTemplate_test_1.testLesson), { id: 'test-lisson6-id', status: domain_1.LessonStatus.inProcess, ruleId: lessonUpdaterTestRule.id });\nconst canceledLesson = Object.assign(Object.assign({}, cloudFunctionTemplate_test_1.testLesson), { id: 'test-lisson6-id', status: domain_1.LessonStatus.canceled, ruleId: lessonUpdaterTestRule.id });\nconst testLessons = [\n    scheduledLessonWithTrueRuleId,\n    scheduledLessonWithoutRuleId,\n    scheduledLessonWithFolseRuleId,\n    doneLesson,\n    finishedLesson,\n    inProcessLesson,\n    canceledLesson\n];\nawait Promise.all(testLessons.map(async (lesson) => {\n    await collectionService_1.db.collection('test_lessons').doc(lesson.id).set(lesson);\n}));\nconst newDate = new Date(cloudFunctionTemplate_test_1.mochDate2023_7_14_15_30_0.getTime() + lessonScheduler_1.lessonComingSoonTimeInterval);\nawait collectionService_1.db.collection('test_rules').doc(lessonUpdaterTestRule.id).update({\n    periodicity: {\n        periodicityType: domain_1.PeriodicityType.manualDate,\n        periodicityRule: [newDate],\n    }\n});\nassert.throws(async () => {\n    await changeRuleLessonUpdaterFunction(lessonUpdaterTestRule.id);\n}, Error);\nconst snap = await collectionService_1.db.collection('test_lessons').get();\nconst data = snap.docs.map((doc) => doc.data());\nconst checkLesson = data.filter((lesson) => lesson.date === newDate);\nassert.deepEqual(checkLesson.length, 1);\nassert.equal(checkLesson[0].id, scheduledLessonWithTrueRuleId.id);",
+              "err": {
+                "message": "Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves. (/home/runner/work/abonement/abonement/functions/src/functions/lessonScheduler.test.ts)",
+                "estack": "Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves. (/home/runner/work/abonement/abonement/functions/src/functions/lessonScheduler.test.ts)\n    at listOnTimeout (node:internal/timers:559:17)\n    at processTimers (node:internal/timers:502:7)",
+                "diff": null
+              },
+              "uuid": "5a90f869-798b-467c-9e09-6b8e5d96be6c",
+              "parentUUID": "e86a75e8-2a8e-4ff7-9a43-dd777b76d775",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "If the rule is changed teacher and users notifications appear",
+              "fullTitle": "Rule change lesson updater tests If the rule is changed teacher and users notifications appear",
+              "timedOut": true,
+              "duration": 2002,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const lessonUpdaterNotificationsTestRule = Object.assign(Object.assign({}, exports.testRule), { id: 'lessonUpdaterTestRuleId', periodicity: {\n        periodicityType: domain_1.PeriodicityType.manualDate,\n        periodicityRule: [cloudFunctionTemplate_test_1.mochDate2023_7_14_15_30_0],\n    } });\nawait collectionService_1.db.collection('test_rules').doc(lessonUpdaterNotificationsTestRule.id).set(lessonUpdaterNotificationsTestRule);\nconst testLessonWithRuleId = Object.assign(Object.assign({}, cloudFunctionTemplate_test_1.testLesson), { id: 'test-lisson-with-rule-id', status: domain_1.LessonStatus.finished, teacherId: 'test-teacher-id', ruleId: lessonUpdaterNotificationsTestRule.id, accepted: [\n        'test-user1-id',\n        'test-user2-id',\n    ], declained: [\n        'test-user3-id'\n    ] });\nconst testUsers = [\n    {\n        id: 'test-user1-id',\n        name: 'test-user1-name',\n        avatar: '',\n    },\n    {\n        id: 'test-user2-id',\n        name: 'test-user2-name',\n        avatar: '',\n    },\n    {\n        id: 'test-user3-id',\n        name: 'test-user3-name',\n        avatar: '',\n    },\n];\nawait Promise.all(testUsers.map(async (user) => {\n    await collectionService_1.db.collection('test_users').doc(user.id).set(user);\n}));\nawait collectionService_1.db.collection('test_lessons').doc(testLessonWithRuleId.id).set(testLessonWithRuleId);\nconst testUser1Notification = await checkSendedNotifications('test-user1-id');\nconst testUser2Notification = await checkSendedNotifications('test-user2-id');\nconst testUser3Notification = await checkSendedNotifications('test-user3-id');\nconst testTeacherNotification = await checkSendedNotifications('test-teacher-id');\nconst newDate = new Date(cloudFunctionTemplate_test_1.mochDate2023_7_14_15_30_0.getTime() + lessonScheduler_1.lessonComingSoonTimeInterval);\nawait collectionService_1.db.collection('test_rules').doc(lessonUpdaterNotificationsTestRule.id).update({\n    periodicity: {\n        periodicityType: domain_1.PeriodicityType.manualDate,\n        periodicityRule: [newDate],\n    }\n});\nassert.throws(async () => {\n    await changeRuleLessonUpdaterFunction(lessonUpdaterNotificationsTestRule.id);\n}, Error);\nconst checkTestUser1Notification = await checkSendedNotifications('test-user1-id');\nconst checkTestUser2Notification = await checkSendedNotifications('test-user2-id');\nconst checkTestUser3Notification = await checkSendedNotifications('test-user3-id');\nconst checkTestTeacherNotification = await checkSendedNotifications('test-teacher-id');\nassert.equal(testUser1Notification, checkTestUser1Notification + 1);\nassert.equal(testUser2Notification, checkTestUser2Notification + 1);\nassert.equal(testUser3Notification, checkTestUser3Notification);\nassert.equal(testTeacherNotification, checkTestTeacherNotification + 1);",
+              "err": {
+                "message": "Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves. (/home/runner/work/abonement/abonement/functions/src/functions/lessonScheduler.test.ts)",
+                "estack": "Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves. (/home/runner/work/abonement/abonement/functions/src/functions/lessonScheduler.test.ts)\n    at listOnTimeout (node:internal/timers:559:17)\n    at processTimers (node:internal/timers:502:7)",
+                "diff": null
+              },
+              "uuid": "b4f1cf33-cc3f-43f6-a969-266d0b7f587e",
+              "parentUUID": "e86a75e8-2a8e-4ff7-9a43-dd777b76d775",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "5a90f869-798b-467c-9e09-6b8e5d96be6c",
+            "b4f1cf33-cc3f-43f6-a969-266d0b7f587e"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 4003,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "602ab29e-5f63-4619-aa79-3cad13d18086",
+          "title": "Template test case. It show if the tests are able to run",
+          "fullFile": "/home/runner/work/abonement/abonement/functions/src/services/serviceTest.test.ts",
+          "file": "/src/services/serviceTest.test.ts",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should pass",
+              "fullTitle": "Template test case. It show if the tests are able to run should pass",
+              "timedOut": false,
+              "duration": 1,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "assert.strictEqual(1, 1);",
+              "err": {},
+              "uuid": "4924a6e4-613b-4d4b-aec5-1adc9ec4dd5f",
+              "parentUUID": "602ab29e-5f63-4619-aa79-3cad13d18086",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "4924a6e4-613b-4d4b-aec5-1adc9ec4dd5f"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "10.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.2.0"
+    }
+  }
+}
