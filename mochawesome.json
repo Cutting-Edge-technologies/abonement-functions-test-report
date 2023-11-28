@@ -5,9 +5,9 @@
     "passes": 1,
     "pending": 0,
     "failures": 21,
-    "start": "2023-11-28T12:08:41.672Z",
-    "end": "2023-11-28T12:09:24.190Z",
-    "duration": 42518,
+    "start": "2023-11-28T14:34:59.631Z",
+    "end": "2023-11-28T14:35:42.201Z",
+    "duration": 42570,
     "testsRegistered": 22,
     "passPercent": 4.545454545454546,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "d0a873f8-df0e-4533-8f17-76a480fa2d43",
+      "uuid": "b4231626-40b0-4b75-bedf-15dcc2067bfc",
       "title": "",
       "fullFile": "",
       "file": "",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "83584f6e-e955-4091-a17d-b3cf9537c9e4",
+          "uuid": "fac3678e-cdbb-46c9-97bd-d6df9c162471",
           "title": "Cloud functions template test. Shows how to run functions against emulators",
           "fullFile": "/home/runner/work/abonement/abonement/functions/src/functions/cloudFunctionTemplate.test.ts",
           "file": "/src/functions/cloudFunctionTemplate.test.ts",
@@ -36,7 +36,7 @@
               "title": "\"before all\" hook in \"Cloud functions template test. Shows how to run functions against emulators\"",
               "fullTitle": "Cloud functions template test. Shows how to run functions against emulators \"before all\" hook in \"Cloud functions template test. Shows how to run functions against emulators\"",
               "timedOut": false,
-              "duration": 200,
+              "duration": 230,
               "state": null,
               "speed": null,
               "pass": false,
@@ -45,8 +45,8 @@
               "context": null,
               "code": "const serviceAccountKeyFileName = './src/abonement-58b38-firebase-credentials.json';\nconst projectSettings = {\n    projectId: 'abonement-58b38',\n};\ncloudFunctionText(projectSettings, serviceAccountKeyFileName);\nadmin.firestore().settings({\n    host: 'localhost:8080',\n    ssl: false,\n    keyFilename: serviceAccountKeyFileName,\n});",
               "err": {},
-              "uuid": "a3f2f09e-5347-463f-a1f4-020182b5977b",
-              "parentUUID": "83584f6e-e955-4091-a17d-b3cf9537c9e4",
+              "uuid": "326edbec-ff31-443c-9307-0b82e4fe7f09",
+              "parentUUID": "fac3678e-cdbb-46c9-97bd-d6df9c162471",
               "isHook": true,
               "skipped": false
             }
@@ -57,7 +57,7 @@
               "title": "should pass using database and the emulators",
               "fullTitle": "Cloud functions template test. Shows how to run functions against emulators should pass using database and the emulators",
               "timedOut": true,
-              "duration": 2249,
+              "duration": 2260,
               "state": "failed",
               "speed": null,
               "pass": false,
@@ -70,8 +70,8 @@
                 "estack": "Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves. (/home/runner/work/abonement/abonement/functions/src/functions/cloudFunctionTemplate.test.ts)\n    at listOnTimeout (node:internal/timers:559:17)\n    at processTimers (node:internal/timers:502:7)",
                 "diff": null
               },
-              "uuid": "97f524fa-b59f-4dc7-a317-71345b81b412",
-              "parentUUID": "83584f6e-e955-4091-a17d-b3cf9537c9e4",
+              "uuid": "b62265da-fa9a-4769-8b3e-d1f2e4bc4fa8",
+              "parentUUID": "fac3678e-cdbb-46c9-97bd-d6df9c162471",
               "isHook": false,
               "skipped": false
             },
@@ -79,7 +79,7 @@
               "title": "creates a lesson and then finalizes it",
               "fullTitle": "Cloud functions template test. Shows how to run functions against emulators creates a lesson and then finalizes it",
               "timedOut": true,
-              "duration": 2000,
+              "duration": 2002,
               "state": "failed",
               "speed": null,
               "pass": false,
@@ -92,8 +92,8 @@
                 "estack": "Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves. (/home/runner/work/abonement/abonement/functions/src/functions/cloudFunctionTemplate.test.ts)\n    at listOnTimeout (node:internal/timers:559:17)\n    at processTimers (node:internal/timers:502:7)",
                 "diff": null
               },
-              "uuid": "50537419-cf26-4bbb-90a0-e0225597c2ed",
-              "parentUUID": "83584f6e-e955-4091-a17d-b3cf9537c9e4",
+              "uuid": "714122e6-f340-43be-980d-2c32f353a761",
+              "parentUUID": "fac3678e-cdbb-46c9-97bd-d6df9c162471",
               "isHook": false,
               "skipped": false
             },
@@ -101,7 +101,7 @@
               "title": "runs a cloud scheduled function",
               "fullTitle": "Cloud functions template test. Shows how to run functions against emulators runs a cloud scheduled function",
               "timedOut": true,
-              "duration": 2005,
+              "duration": 2006,
               "state": "failed",
               "speed": null,
               "pass": false,
@@ -114,8 +114,8 @@
                 "estack": "Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves. (/home/runner/work/abonement/abonement/functions/src/functions/cloudFunctionTemplate.test.ts)\n    at listOnTimeout (node:internal/timers:559:17)\n    at processTimers (node:internal/timers:502:7)",
                 "diff": null
               },
-              "uuid": "64a8e736-7ff4-4079-b0bf-122036320d80",
-              "parentUUID": "83584f6e-e955-4091-a17d-b3cf9537c9e4",
+              "uuid": "b580be0d-d266-4a27-a251-c6e84c6942ac",
+              "parentUUID": "fac3678e-cdbb-46c9-97bd-d6df9c162471",
               "isHook": false,
               "skipped": false
             }
@@ -123,19 +123,19 @@
           "suites": [],
           "passes": [],
           "failures": [
-            "97f524fa-b59f-4dc7-a317-71345b81b412",
-            "50537419-cf26-4bbb-90a0-e0225597c2ed",
-            "64a8e736-7ff4-4079-b0bf-122036320d80"
+            "b62265da-fa9a-4769-8b3e-d1f2e4bc4fa8",
+            "714122e6-f340-43be-980d-2c32f353a761",
+            "b580be0d-d266-4a27-a251-c6e84c6942ac"
           ],
           "pending": [],
           "skipped": [],
-          "duration": 6254,
+          "duration": 6268,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
         },
         {
-          "uuid": "46269a11-dea3-422c-80f1-073e5c92c4e3",
+          "uuid": "93d5c79d-9a35-402f-9d8a-b16ebae90f9a",
           "title": "lesson finalization tests",
           "fullFile": "/home/runner/work/abonement/abonement/functions/src/functions/lessonFinalization.test.ts",
           "file": "/src/functions/lessonFinalization.test.ts",
@@ -159,8 +159,8 @@
                 "estack": "Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves. (/home/runner/work/abonement/abonement/functions/src/functions/lessonFinalization.test.ts)\n    at listOnTimeout (node:internal/timers:559:17)\n    at processTimers (node:internal/timers:502:7)",
                 "diff": null
               },
-              "uuid": "a3983399-c6c3-4a71-8edf-35c092520db5",
-              "parentUUID": "46269a11-dea3-422c-80f1-073e5c92c4e3",
+              "uuid": "d1c5e383-aee0-4416-ad56-8ea82bee3a2e",
+              "parentUUID": "93d5c79d-9a35-402f-9d8a-b16ebae90f9a",
               "isHook": false,
               "skipped": false
             },
@@ -181,8 +181,8 @@
                 "estack": "Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves. (/home/runner/work/abonement/abonement/functions/src/functions/lessonFinalization.test.ts)\n    at listOnTimeout (node:internal/timers:559:17)\n    at processTimers (node:internal/timers:502:7)",
                 "diff": null
               },
-              "uuid": "625ed36b-cbaa-4f77-879a-b40584872dfb",
-              "parentUUID": "46269a11-dea3-422c-80f1-073e5c92c4e3",
+              "uuid": "4b90df1d-6ec5-480a-972b-368b4cb03ebc",
+              "parentUUID": "93d5c79d-9a35-402f-9d8a-b16ebae90f9a",
               "isHook": false,
               "skipped": false
             },
@@ -203,8 +203,8 @@
                 "estack": "Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves. (/home/runner/work/abonement/abonement/functions/src/functions/lessonFinalization.test.ts)\n    at listOnTimeout (node:internal/timers:559:17)\n    at processTimers (node:internal/timers:502:7)",
                 "diff": null
               },
-              "uuid": "5b475a78-86f8-40e8-ada6-1f789032e947",
-              "parentUUID": "46269a11-dea3-422c-80f1-073e5c92c4e3",
+              "uuid": "a229cc91-956f-4739-b8be-294d4ed3cf4e",
+              "parentUUID": "93d5c79d-9a35-402f-9d8a-b16ebae90f9a",
               "isHook": false,
               "skipped": false
             },
@@ -212,7 +212,7 @@
               "title": "4. Accepted user abonements will be consumed after lesson finalization",
               "fullTitle": "lesson finalization tests 4. Accepted user abonements will be consumed after lesson finalization",
               "timedOut": true,
-              "duration": 2002,
+              "duration": 2001,
               "state": "failed",
               "speed": null,
               "pass": false,
@@ -225,8 +225,8 @@
                 "estack": "Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves. (/home/runner/work/abonement/abonement/functions/src/functions/lessonFinalization.test.ts)\n    at listOnTimeout (node:internal/timers:559:17)\n    at processTimers (node:internal/timers:502:7)",
                 "diff": null
               },
-              "uuid": "9507cbe4-4b35-4cdc-967b-c9a18e78cb29",
-              "parentUUID": "46269a11-dea3-422c-80f1-073e5c92c4e3",
+              "uuid": "9154e41f-9a06-4223-9512-4e446af80b3d",
+              "parentUUID": "93d5c79d-9a35-402f-9d8a-b16ebae90f9a",
               "isHook": false,
               "skipped": false
             },
@@ -247,8 +247,8 @@
                 "estack": "Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves. (/home/runner/work/abonement/abonement/functions/src/functions/lessonFinalization.test.ts)\n    at listOnTimeout (node:internal/timers:559:17)\n    at processTimers (node:internal/timers:502:7)",
                 "diff": null
               },
-              "uuid": "928b5d58-240f-4fe9-abda-4fef0b03f83a",
-              "parentUUID": "46269a11-dea3-422c-80f1-073e5c92c4e3",
+              "uuid": "a9864bc5-aa69-4910-a52c-3e51d43c7494",
+              "parentUUID": "93d5c79d-9a35-402f-9d8a-b16ebae90f9a",
               "isHook": false,
               "skipped": false
             }
@@ -256,21 +256,21 @@
           "suites": [],
           "passes": [],
           "failures": [
-            "a3983399-c6c3-4a71-8edf-35c092520db5",
-            "625ed36b-cbaa-4f77-879a-b40584872dfb",
-            "5b475a78-86f8-40e8-ada6-1f789032e947",
-            "9507cbe4-4b35-4cdc-967b-c9a18e78cb29",
-            "928b5d58-240f-4fe9-abda-4fef0b03f83a"
+            "d1c5e383-aee0-4416-ad56-8ea82bee3a2e",
+            "4b90df1d-6ec5-480a-972b-368b4cb03ebc",
+            "a229cc91-956f-4739-b8be-294d4ed3cf4e",
+            "9154e41f-9a06-4223-9512-4e446af80b3d",
+            "a9864bc5-aa69-4910-a52c-3e51d43c7494"
           ],
           "pending": [],
           "skipped": [],
-          "duration": 10009,
+          "duration": 10008,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
         },
         {
-          "uuid": "16c377a8-8ce8-451c-b073-fabe18ffbbb2",
+          "uuid": "77c6aa9b-69a3-432d-8bd5-d629ad28e284",
           "title": " cancel Lesson Function tests",
           "fullFile": "/home/runner/work/abonement/abonement/functions/src/functions/lessonFinalization.test.ts",
           "file": "/src/functions/lessonFinalization.test.ts",
@@ -294,8 +294,8 @@
                 "estack": "Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves. (/home/runner/work/abonement/abonement/functions/src/functions/lessonFinalization.test.ts)\n    at listOnTimeout (node:internal/timers:559:17)\n    at processTimers (node:internal/timers:502:7)",
                 "diff": null
               },
-              "uuid": "8d70e3fc-46d3-44eb-8f37-5609653e2073",
-              "parentUUID": "16c377a8-8ce8-451c-b073-fabe18ffbbb2",
+              "uuid": "85884626-2936-405a-b9f1-914ffedeaeb3",
+              "parentUUID": "77c6aa9b-69a3-432d-8bd5-d629ad28e284",
               "isHook": false,
               "skipped": false
             },
@@ -303,7 +303,7 @@
               "title": "2. You can not finalize canceled lesson ",
               "fullTitle": " cancel Lesson Function tests 2. You can not finalize canceled lesson ",
               "timedOut": true,
-              "duration": 2001,
+              "duration": 2002,
               "state": "failed",
               "speed": null,
               "pass": false,
@@ -316,8 +316,8 @@
                 "estack": "Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves. (/home/runner/work/abonement/abonement/functions/src/functions/lessonFinalization.test.ts)\n    at listOnTimeout (node:internal/timers:559:17)\n    at processTimers (node:internal/timers:502:7)",
                 "diff": null
               },
-              "uuid": "6fcb52ac-7fbb-46e9-9778-ac7556debd3d",
-              "parentUUID": "16c377a8-8ce8-451c-b073-fabe18ffbbb2",
+              "uuid": "55c4802d-2202-4b49-9ba1-bc2b1fa166e6",
+              "parentUUID": "77c6aa9b-69a3-432d-8bd5-d629ad28e284",
               "isHook": false,
               "skipped": false
             },
@@ -325,7 +325,7 @@
               "title": "3. Both accepted and declained users abonements will not be consumed after lesson cancelation",
               "fullTitle": " cancel Lesson Function tests 3. Both accepted and declained users abonements will not be consumed after lesson cancelation",
               "timedOut": true,
-              "duration": 2001,
+              "duration": 2000,
               "state": "failed",
               "speed": null,
               "pass": false,
@@ -338,8 +338,8 @@
                 "estack": "Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves. (/home/runner/work/abonement/abonement/functions/src/functions/lessonFinalization.test.ts)\n    at listOnTimeout (node:internal/timers:559:17)\n    at processTimers (node:internal/timers:502:7)",
                 "diff": null
               },
-              "uuid": "9eb309c3-05c5-4b62-bf33-ad6700d4c39e",
-              "parentUUID": "16c377a8-8ce8-451c-b073-fabe18ffbbb2",
+              "uuid": "facf8a9c-6496-4ba2-83c1-12cf2636e00d",
+              "parentUUID": "77c6aa9b-69a3-432d-8bd5-d629ad28e284",
               "isHook": false,
               "skipped": false
             }
@@ -347,9 +347,9 @@
           "suites": [],
           "passes": [],
           "failures": [
-            "8d70e3fc-46d3-44eb-8f37-5609653e2073",
-            "6fcb52ac-7fbb-46e9-9778-ac7556debd3d",
-            "9eb309c3-05c5-4b62-bf33-ad6700d4c39e"
+            "85884626-2936-405a-b9f1-914ffedeaeb3",
+            "55c4802d-2202-4b49-9ba1-bc2b1fa166e6",
+            "facf8a9c-6496-4ba2-83c1-12cf2636e00d"
           ],
           "pending": [],
           "skipped": [],
@@ -359,7 +359,7 @@
           "_timeout": 2000
         },
         {
-          "uuid": "350d09b4-dbb7-4ca2-8a03-e609a8e1417c",
+          "uuid": "529495b9-dd64-4d48-8345-3284e5676b6d",
           "title": "lesson Scheduler Function tests",
           "fullFile": "/home/runner/work/abonement/abonement/functions/src/functions/lessonScheduler.test.ts",
           "file": "/src/functions/lessonScheduler.test.ts",
@@ -370,7 +370,7 @@
               "title": "For every rule that require us to create a new lesson within lessonCreationTimeInterval the single entity of lesson is created ",
               "fullTitle": "lesson Scheduler Function tests For every rule that require us to create a new lesson within lessonCreationTimeInterval the single entity of lesson is created ",
               "timedOut": true,
-              "duration": 2007,
+              "duration": 2005,
               "state": "failed",
               "speed": null,
               "pass": false,
@@ -383,8 +383,8 @@
                 "estack": "Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves. (/home/runner/work/abonement/abonement/functions/src/functions/lessonScheduler.test.ts)\n    at listOnTimeout (node:internal/timers:559:17)\n    at processTimers (node:internal/timers:502:7)",
                 "diff": null
               },
-              "uuid": "b9f2a883-9230-434a-b509-54bcabf0f415",
-              "parentUUID": "350d09b4-dbb7-4ca2-8a03-e609a8e1417c",
+              "uuid": "042334cb-c9d4-425e-b553-de2bfec5cf8b",
+              "parentUUID": "529495b9-dd64-4d48-8345-3284e5676b6d",
               "isHook": false,
               "skipped": false
             },
@@ -405,8 +405,8 @@
                 "estack": "Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves. (/home/runner/work/abonement/abonement/functions/src/functions/lessonScheduler.test.ts)\n    at listOnTimeout (node:internal/timers:559:17)\n    at processTimers (node:internal/timers:502:7)",
                 "diff": null
               },
-              "uuid": "d1ace24c-18fc-4fda-b858-1cd53b994eb3",
-              "parentUUID": "350d09b4-dbb7-4ca2-8a03-e609a8e1417c",
+              "uuid": "eb3463db-d8b0-40ca-8749-e63b7ad2b54a",
+              "parentUUID": "529495b9-dd64-4d48-8345-3284e5676b6d",
               "isHook": false,
               "skipped": false
             }
@@ -414,18 +414,18 @@
           "suites": [],
           "passes": [],
           "failures": [
-            "b9f2a883-9230-434a-b509-54bcabf0f415",
-            "d1ace24c-18fc-4fda-b858-1cd53b994eb3"
+            "042334cb-c9d4-425e-b553-de2bfec5cf8b",
+            "eb3463db-d8b0-40ca-8749-e63b7ad2b54a"
           ],
           "pending": [],
           "skipped": [],
-          "duration": 4008,
+          "duration": 4006,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
         },
         {
-          "uuid": "24461603-bc34-4266-8c0d-7f96a6fbdd5d",
+          "uuid": "c8b0877f-b7c3-4793-8fb7-368dbe7e6eb0",
           "title": "lessonComingSoonUpdaterFunction tests",
           "fullFile": "/home/runner/work/abonement/abonement/functions/src/functions/lessonScheduler.test.ts",
           "file": "/src/functions/lessonScheduler.test.ts",
@@ -436,7 +436,7 @@
               "title": "For every lesson that is scheduled in less then lessonComingSoonTimeInterval the status changed to commingSoon",
               "fullTitle": "lessonComingSoonUpdaterFunction tests For every lesson that is scheduled in less then lessonComingSoonTimeInterval the status changed to commingSoon",
               "timedOut": true,
-              "duration": 2004,
+              "duration": 2005,
               "state": "failed",
               "speed": null,
               "pass": false,
@@ -449,8 +449,8 @@
                 "estack": "Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves. (/home/runner/work/abonement/abonement/functions/src/functions/lessonScheduler.test.ts)\n    at listOnTimeout (node:internal/timers:559:17)\n    at processTimers (node:internal/timers:502:7)",
                 "diff": null
               },
-              "uuid": "2a291c42-37cc-4139-9dc2-101ef3a82546",
-              "parentUUID": "24461603-bc34-4266-8c0d-7f96a6fbdd5d",
+              "uuid": "ccd4935b-7e7c-41c3-99a9-4efe74347f5c",
+              "parentUUID": "c8b0877f-b7c3-4793-8fb7-368dbe7e6eb0",
               "isHook": false,
               "skipped": false
             },
@@ -458,7 +458,7 @@
               "title": "When the lesson is commingSoon the teacher and users notifications appear",
               "fullTitle": "lessonComingSoonUpdaterFunction tests When the lesson is commingSoon the teacher and users notifications appear",
               "timedOut": true,
-              "duration": 2004,
+              "duration": 2002,
               "state": "failed",
               "speed": null,
               "pass": false,
@@ -471,8 +471,8 @@
                 "estack": "Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves. (/home/runner/work/abonement/abonement/functions/src/functions/lessonScheduler.test.ts)\n    at listOnTimeout (node:internal/timers:559:17)\n    at processTimers (node:internal/timers:502:7)",
                 "diff": null
               },
-              "uuid": "777d8032-ce3a-4793-8fa8-395ed785c383",
-              "parentUUID": "24461603-bc34-4266-8c0d-7f96a6fbdd5d",
+              "uuid": "5019f6e6-ddd4-4496-be15-d443f46b22a3",
+              "parentUUID": "c8b0877f-b7c3-4793-8fb7-368dbe7e6eb0",
               "isHook": false,
               "skipped": false
             }
@@ -480,18 +480,18 @@
           "suites": [],
           "passes": [],
           "failures": [
-            "2a291c42-37cc-4139-9dc2-101ef3a82546",
-            "777d8032-ce3a-4793-8fa8-395ed785c383"
+            "ccd4935b-7e7c-41c3-99a9-4efe74347f5c",
+            "5019f6e6-ddd4-4496-be15-d443f46b22a3"
           ],
           "pending": [],
           "skipped": [],
-          "duration": 4008,
+          "duration": 4007,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
         },
         {
-          "uuid": "73ad2fd9-deab-4774-975b-046c887d64fd",
+          "uuid": "772fca96-014d-413a-b60d-cdf9fa070924",
           "title": "lessonStartsUpdaterFunction tests",
           "fullFile": "/home/runner/work/abonement/abonement/functions/src/functions/lessonScheduler.test.ts",
           "file": "/src/functions/lessonScheduler.test.ts",
@@ -502,7 +502,7 @@
               "title": "For commingSoon lessons that has date less then now and not greater then date + duration the status changed to starts",
               "fullTitle": "lessonStartsUpdaterFunction tests For commingSoon lessons that has date less then now and not greater then date + duration the status changed to starts",
               "timedOut": true,
-              "duration": 2002,
+              "duration": 2005,
               "state": "failed",
               "speed": null,
               "pass": false,
@@ -515,8 +515,8 @@
                 "estack": "Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves. (/home/runner/work/abonement/abonement/functions/src/functions/lessonScheduler.test.ts)\n    at listOnTimeout (node:internal/timers:559:17)\n    at processTimers (node:internal/timers:502:7)",
                 "diff": null
               },
-              "uuid": "df32819d-d983-43fc-bc2b-c0a10ea93de6",
-              "parentUUID": "73ad2fd9-deab-4774-975b-046c887d64fd",
+              "uuid": "ef347a7a-72ff-47f9-90bd-90241c18cf15",
+              "parentUUID": "772fca96-014d-413a-b60d-cdf9fa070924",
               "isHook": false,
               "skipped": false
             }
@@ -524,17 +524,17 @@
           "suites": [],
           "passes": [],
           "failures": [
-            "df32819d-d983-43fc-bc2b-c0a10ea93de6"
+            "ef347a7a-72ff-47f9-90bd-90241c18cf15"
           ],
           "pending": [],
           "skipped": [],
-          "duration": 2002,
+          "duration": 2005,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
         },
         {
-          "uuid": "f4d2cb3a-fc66-469a-be59-13aba9d333ed",
+          "uuid": "03fceb42-f97e-400b-9258-ae2bf6a5cfee",
           "title": "lessonFinishedUpdaterFunction tests",
           "fullFile": "/home/runner/work/abonement/abonement/functions/src/functions/lessonScheduler.test.ts",
           "file": "/src/functions/lessonScheduler.test.ts",
@@ -545,7 +545,7 @@
               "title": "For started lessons that has date + duration less then now the status changed to finished",
               "fullTitle": "lessonFinishedUpdaterFunction tests For started lessons that has date + duration less then now the status changed to finished",
               "timedOut": true,
-              "duration": 2002,
+              "duration": 2003,
               "state": "failed",
               "speed": null,
               "pass": false,
@@ -558,8 +558,8 @@
                 "estack": "Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves. (/home/runner/work/abonement/abonement/functions/src/functions/lessonScheduler.test.ts)\n    at listOnTimeout (node:internal/timers:559:17)\n    at processTimers (node:internal/timers:502:7)",
                 "diff": null
               },
-              "uuid": "2ccaba8b-3c1f-409a-9e33-840f7814109a",
-              "parentUUID": "f4d2cb3a-fc66-469a-be59-13aba9d333ed",
+              "uuid": "38ac2337-b86e-4adb-9b4a-f5eb0dda0d5e",
+              "parentUUID": "03fceb42-f97e-400b-9258-ae2bf6a5cfee",
               "isHook": false,
               "skipped": false
             }
@@ -567,17 +567,17 @@
           "suites": [],
           "passes": [],
           "failures": [
-            "2ccaba8b-3c1f-409a-9e33-840f7814109a"
+            "38ac2337-b86e-4adb-9b4a-f5eb0dda0d5e"
           ],
           "pending": [],
           "skipped": [],
-          "duration": 2002,
+          "duration": 2003,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
         },
         {
-          "uuid": "f2eb0f06-8175-4a23-b88a-24c6c5ba5aeb",
+          "uuid": "eb051f61-f8a3-486a-b69d-450df46d5a40",
           "title": "lessonFinalizedUpdaterFunction tests",
           "fullFile": "/home/runner/work/abonement/abonement/functions/src/functions/lessonScheduler.test.ts",
           "file": "/src/functions/lessonScheduler.test.ts",
@@ -601,8 +601,8 @@
                 "estack": "Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves. (/home/runner/work/abonement/abonement/functions/src/functions/lessonScheduler.test.ts)\n    at listOnTimeout (node:internal/timers:559:17)\n    at processTimers (node:internal/timers:502:7)",
                 "diff": null
               },
-              "uuid": "c9abe750-1217-46b0-a136-adda5c21cccb",
-              "parentUUID": "f2eb0f06-8175-4a23-b88a-24c6c5ba5aeb",
+              "uuid": "0d49ad0b-fcc1-4999-ae7e-b8cfe22b8f7f",
+              "parentUUID": "eb051f61-f8a3-486a-b69d-450df46d5a40",
               "isHook": false,
               "skipped": false
             },
@@ -610,7 +610,7 @@
               "title": "When the lesson is finalized the teacher and users notifications appear",
               "fullTitle": "lessonFinalizedUpdaterFunction tests When the lesson is finalized the teacher and users notifications appear",
               "timedOut": true,
-              "duration": 2001,
+              "duration": 2002,
               "state": "failed",
               "speed": null,
               "pass": false,
@@ -623,8 +623,8 @@
                 "estack": "Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves. (/home/runner/work/abonement/abonement/functions/src/functions/lessonScheduler.test.ts)\n    at listOnTimeout (node:internal/timers:559:17)\n    at processTimers (node:internal/timers:502:7)",
                 "diff": null
               },
-              "uuid": "c0274121-3332-4f68-b1b4-4f49500c71dc",
-              "parentUUID": "f2eb0f06-8175-4a23-b88a-24c6c5ba5aeb",
+              "uuid": "acf14132-89fa-430b-a82a-3ddc8bc1d404",
+              "parentUUID": "eb051f61-f8a3-486a-b69d-450df46d5a40",
               "isHook": false,
               "skipped": false
             }
@@ -632,18 +632,18 @@
           "suites": [],
           "passes": [],
           "failures": [
-            "c9abe750-1217-46b0-a136-adda5c21cccb",
-            "c0274121-3332-4f68-b1b4-4f49500c71dc"
+            "0d49ad0b-fcc1-4999-ae7e-b8cfe22b8f7f",
+            "acf14132-89fa-430b-a82a-3ddc8bc1d404"
           ],
           "pending": [],
           "skipped": [],
-          "duration": 4003,
+          "duration": 4004,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
         },
         {
-          "uuid": "36a83c04-6186-4448-ad77-e40e2e97568c",
+          "uuid": "c499fe00-1bfa-483e-b428-83158b834030",
           "title": "Rule change lesson updater tests",
           "fullFile": "/home/runner/work/abonement/abonement/functions/src/functions/lessonScheduler.test.ts",
           "file": "/src/functions/lessonScheduler.test.ts",
@@ -667,8 +667,8 @@
                 "estack": "Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves. (/home/runner/work/abonement/abonement/functions/src/functions/lessonScheduler.test.ts)\n    at listOnTimeout (node:internal/timers:559:17)\n    at processTimers (node:internal/timers:502:7)",
                 "diff": null
               },
-              "uuid": "8ecb714c-6f3d-450a-ae01-82f1e30050a6",
-              "parentUUID": "36a83c04-6186-4448-ad77-e40e2e97568c",
+              "uuid": "fabbfbd9-c273-4157-8676-9413bf77838d",
+              "parentUUID": "c499fe00-1bfa-483e-b428-83158b834030",
               "isHook": false,
               "skipped": false
             },
@@ -689,8 +689,8 @@
                 "estack": "Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves. (/home/runner/work/abonement/abonement/functions/src/functions/lessonScheduler.test.ts)\n    at listOnTimeout (node:internal/timers:559:17)\n    at processTimers (node:internal/timers:502:7)",
                 "diff": null
               },
-              "uuid": "2d7a16da-3a78-4b2f-86b0-4ce6dc39ba49",
-              "parentUUID": "36a83c04-6186-4448-ad77-e40e2e97568c",
+              "uuid": "39038ef9-19f5-4d5d-ade4-d33ada23508f",
+              "parentUUID": "c499fe00-1bfa-483e-b428-83158b834030",
               "isHook": false,
               "skipped": false
             }
@@ -698,8 +698,8 @@
           "suites": [],
           "passes": [],
           "failures": [
-            "8ecb714c-6f3d-450a-ae01-82f1e30050a6",
-            "2d7a16da-3a78-4b2f-86b0-4ce6dc39ba49"
+            "fabbfbd9-c273-4157-8676-9413bf77838d",
+            "39038ef9-19f5-4d5d-ade4-d33ada23508f"
           ],
           "pending": [],
           "skipped": [],
@@ -709,7 +709,7 @@
           "_timeout": 2000
         },
         {
-          "uuid": "e66001be-9756-4f88-968b-53393cbe70ae",
+          "uuid": "76effbc3-39eb-4152-a02b-82baf4fe5e59",
           "title": "Template test case. It show if the tests are able to run",
           "fullFile": "/home/runner/work/abonement/abonement/functions/src/services/serviceTest.test.ts",
           "file": "/src/services/serviceTest.test.ts",
@@ -729,15 +729,15 @@
               "context": null,
               "code": "assert.strictEqual(1, 1);",
               "err": {},
-              "uuid": "387d4d6d-a18d-4f42-afaf-0414eb67e2d6",
-              "parentUUID": "e66001be-9756-4f88-968b-53393cbe70ae",
+              "uuid": "9f632b56-d0bd-4a47-a02b-04ab7a8cfb1d",
+              "parentUUID": "76effbc3-39eb-4152-a02b-82baf4fe5e59",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "387d4d6d-a18d-4f42-afaf-0414eb67e2d6"
+            "9f632b56-d0bd-4a47-a02b-04ab7a8cfb1d"
           ],
           "failures": [],
           "pending": [],
